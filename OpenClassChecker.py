@@ -36,12 +36,15 @@ class OpenClassChecker:
 
     
     def getAllClassStatus(self):
+        all = {}
         for class_code in self.classes:
             status = self.getClassStatus(class_code)
-            print class_code, status
+            code = class_code[0] + ' ' + class_code[1]
+            all[code] = status
+        return all
     
     
     
     def __del__(self):
-        print 'exiting...'
+        print('exiting...')
         self.browser.quit()

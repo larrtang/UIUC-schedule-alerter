@@ -1,20 +1,20 @@
 from twilio.rest import Client
-
+import os
 
 # Your Account Sid and Auth Token from twilio.com/console
 class TwilioClient:
     
     
     def __init__(self):
-        self.account_sid = 'AC6e3a23d3d7761990ee62461548c8cb0b'
-        self.auth_token = ''
+        self.account_sid = os.getenv('TWILIO_SID')
+        self.auth_token = os.getenv('TWILIO_TOKEN')
        
         self.client = Client(self.account_sid, self.auth_token)
 
-    def sendMessage(self):
+    def sendMessage(self, msg_body):
         message = self.client.messages \
                         .create(
-                            body="Let's grab lunch at Milliways tomorrow!",
+                            body=msg_body,
                             from_='+15029121597',
                             to='+16306974762'
                         )
