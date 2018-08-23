@@ -33,7 +33,7 @@ def main():
             TwilioClient().sendMessage(msg)
             base_status = status
         
-        time.sleep(10)
+        time.sleep(100)
 
 
 
