@@ -37,10 +37,13 @@ class OpenClassChecker:
     
     def getAllClassStatus(self):
         all = {}
-        for class_code in self.classes:
-            status = self.getClassStatus(class_code)
-            code = class_code[0] + ' ' + class_code[1]
-            all[code] = status
+        try:
+            for class_code in self.classes:
+                status = self.getClassStatus(class_code)
+                code = class_code[0] + ' ' + class_code[1]
+                all[code] = status
+        except:
+            pass
         return all
     
     
